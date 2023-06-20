@@ -28,12 +28,19 @@ export default function HeaderNav() {
         >
           CONTACT
         </Link>
-        <button className="relative border-2 border-black p-2 rounded-md overflow-hidden group my-2 overflow-hidden w-fit z-30">
-          <h1 className="z-20 relative group-hover:text-[#F5F5F5] font-semibold transition-all duration-[1200ms]">
-            VIEW CV
-          </h1>
-          <span className="absolute origin-left transition-all duration-[1000ms] border-x-2 border-black -left-14 -top-28 bg-primary-hover w-0 h-[22rem] group-hover:w-full group-hover:rotate-45"></span>
-        </button>
+        <Link
+          href={"/Chandev-CV.pdf"}
+          alt="alt text"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="relative border-2 border-black p-2 rounded-md overflow-hidden group my-2 overflow-hidden w-fit z-30">
+            <h1 className="z-20 relative group-hover:text-[#F5F5F5] font-semibold transition-all duration-[1200ms]">
+              VIEW CV
+            </h1>
+            <span className="absolute origin-left transition-all duration-[1000ms] border-x-2 border-black -left-14 -top-28 bg-primary-hover w-0 h-[22rem] group-hover:w-full group-hover:rotate-45"></span>
+          </button>
+        </Link>
       </div>
 
       <div className="w-fit absolute right-0 p-4 md:hidden z-50">
@@ -100,12 +107,19 @@ export default function HeaderNav() {
         >
           CONTACT
         </Link>
-        <button className="relative border-2 border-black p-2 rounded-md overflow-hidden group my-2 overflow-hidden w-fit z-30">
-          <h1 className="z-20 relative group-hover:text-[#F5F5F5] font-semibold transition-all duration-[1200ms]">
-            VIEW CV
-          </h1>
-          <span className="absolute origin-left transition-all duration-[1000ms] border-x-2 border-black -left-14 -top-28 bg-primary-hover w-0 h-[22rem] group-hover:w-full group-hover:rotate-45"></span>
-        </button>
+        <Link
+          href={"/Chandev-CV.pdf"}
+          alt="alt text"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="relative border-2 border-black p-2 rounded-md overflow-hidden group my-2 overflow-hidden w-fit z-30">
+            <h1 className="z-20 relative group-hover:text-[#F5F5F5] font-semibold transition-all duration-[1200ms]">
+              VIEW CV
+            </h1>
+            <span className="absolute origin-left transition-all duration-[1000ms] border-x-2 border-black -left-14 -top-28 bg-primary-hover w-0 h-[22rem] group-hover:w-full group-hover:rotate-45"></span>
+          </button>
+        </Link>
       </div>
     </div>
   );
