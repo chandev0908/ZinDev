@@ -156,7 +156,7 @@ api from consumnet.org"
             to life.
           </p>
           <Link
-            href="chandev0908@gmail.com"
+            href="mailto:chandev0908@gmail.com"
             className="border-2 border-black py-3 px-6 group relative overflow-hidden"
           >
             <span className="absolute left-0 top-0 bg-primary-hover w-0 h-full transition-all duration-1000ms group-hover:w-full opacity-100 z-10"></span>
