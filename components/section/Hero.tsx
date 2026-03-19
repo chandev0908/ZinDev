@@ -160,7 +160,7 @@ export default function Hero() {
     >
       {/* Mode toggle top right */}
       <div className="absolute top-6 right-8">
-        <ModeToggle size={8}/>
+        <ModeToggle size={6}/>
       </div>
 
       {/* Eyebrow */}
@@ -174,7 +174,7 @@ export default function Hero() {
       {/* Name — extra vertical padding so descenders aren't clipped */}
       <h1
         ref={nameRef}
-        className={`${kaushan.className} text-8xl md:text-[10rem] lg:text-[12rem] text-foreground leading-none mb-4`}
+        className={`${kaushan.className} text-7xl md:text-[10rem] lg:text-[12rem] text-foreground leading-none mb-4`}
         style={{ paddingBottom: "0.1em", paddingTop: "0.05em" }}
       >
         Chandev

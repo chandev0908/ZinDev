@@ -55,7 +55,9 @@ export default function Navbar() {
           : "opacity-0 -translate-y-full pointer-events-none"
       }`}
     >
-      <nav className="flex items-center justify-between px-8 py-4 max-w-6xl mx-auto">
+      <nav className="flex items-center justify-between px-8 py-3 max-w-6xl mx-auto">
+
+        {/* Brand */}
         <button
           onClick={() => scrollToSection("hero")}
           className={`${kaushan.className} text-xl text-foreground bg-transparent border-none cursor-none p-0`}
@@ -63,7 +65,8 @@ export default function Navbar() {
           Chandev
         </button>
 
-        <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-6 list-none m-0 p-0">
           {navLinks.map((link) => (
             <li key={link.label}>
               <button
@@ -76,8 +79,21 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Right side — resume + mode toggle + hamburger */}
         <div className="flex items-center gap-3">
+          {/* Resume button — desktop only */}
+          <a
+            href="/resume.pdf"
+            download="Christian_Dalagan_Resume.pdf"
+            data-cursor="Download ↓"
+            className="hidden md:inline-flex text-xs px-4 py-2 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors cursor-none"
+          >
+            View CV/Resume
+          </a>
+
           <ModeToggle />
+
+          {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex md:hidden flex-col justify-center gap-1.5 w-8 h-8 bg-transparent border-none cursor-none"
@@ -90,6 +106,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
         <ul className="flex flex-col list-none m-0 p-0 border-t border-border">
           {navLinks.map((link) => (
@@ -102,6 +119,17 @@ export default function Navbar() {
               </button>
             </li>
           ))}
+          {/* Resume in mobile menu */}
+          <li>
+            <a
+              href="/resume.pdf"
+              download="Christian_Dalagan_Resume.pdf"
+              onClick={() => setIsOpen(false)}
+              className="block px-8 py-4 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors border-b border-border"
+            >
+              View CV/Resume ↓
+            </a>
+          </li>
         </ul>
       </div>
     </header>
