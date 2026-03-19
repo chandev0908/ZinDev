@@ -185,7 +185,7 @@ export default function About() {
                 </p>
                 <p className="text-xs text-muted-foreground mb-0.5">Freelance</p>
                 <p className="text-xs text-muted-foreground">
-                  June 2024 – Present
+                  June 2024 – July 2025
                 </p>
               </div>
             </div>
