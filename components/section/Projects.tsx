@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { title } from "process";
+import { CopyIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,11 +21,22 @@ const projects = [
   },
   {
     title: "Z-Animedex 2.0",
-    description: "An improved version of my old Z-Animedex app with a better UI",
+    description:
+      "An improved version of my old Z-Animedex app with a better UI",
     stack: ["Next.js", "JikanApi", "Zustand", "Tailwind"],
     category: "Next.js",
     href: "https://z-animedex-v2.vercel.app",
     image: "/projects/Z-Animedex-project.png",
+  },
+  {
+    title: "Chanfinds",
+    description:
+      "Password: chanfinds\n  .A shopify custom theme I made to showcase my shopify skills. It features a clean, modern design with smooth animations and a custom cursor.",
+    stack: ["Shopify", "Liquid", "CSS", "Javascript"],
+    category: "Shopify",
+    href: "https://chanfinds-2.myshopify.com",
+    image: "/projects/Shopify-chanfinds-project.png",
+    password: "chanfinds",
   },
 ];
 
@@ -191,6 +203,17 @@ export default function Projects() {
               data-cursor="View ↗"
               className="group bg-background p-8 flex flex-col gap-4 hover:bg-secondary transition-colors cursor-none"
             >
+              {/* password badge — only shows if project has a password */}
+              {project.password && (
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                    Password
+                  </span>
+                  <code className="text-[10px] px-2 py-0.5 rounded bg-muted text-foreground border border-border">
+                    {project.password}
+                  </code>
+                </div>
+              )}
               <div className="w-full aspect-video bg-muted rounded-sm overflow-hidden relative">
                 <Image
                   src={project.image}
