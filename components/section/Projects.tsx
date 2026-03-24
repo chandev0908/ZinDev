@@ -29,14 +29,24 @@ const projects = [
     image: "/projects/Z-Animedex-project.png",
   },
   {
-    title: "Chanfinds",
+    title: "Chanfinds Theme",
     description:
-      "Password: chanfinds\n  .A shopify custom theme I made to showcase my shopify skills. It features a clean, modern design with smooth animations and a custom cursor.",
+      "A shopify custom theme I made to showcase my shopify skills. It features a clean, modern design with smooth animations and a custom cursor.",
     stack: ["Shopify", "Liquid", "CSS", "Javascript"],
     category: "Shopify",
     href: "https://chanfinds-2.myshopify.com",
     image: "/projects/Shopify-chanfinds-project.png",
     password: "chanfinds",
+  },
+  {
+    title: "The Dark Roast Theme",
+    description:
+      "A premium, dark-mode Shopify storefront engineered from the ground up to deliver a seamless, high-end e-commerce experience. Built exclusively with Liquid and Vanilla JavaScript, it features a fully AJAX-driven cart architecture, intelligent debouncing, and dynamically rendered UI states without relying on heavy external dependencies like jQuery.",
+    stack: ["Shopify", "Liquid", "CSS", "Javascript", "AJAX", "jQuery"],
+    category: "Shopify",
+    href: "https://thedark-roast.myshopify.com",
+    image: "/projects/Dark-roast-theme-project.png",
+    password: "darkroast",
   },
 ];
 
@@ -183,11 +193,10 @@ export default function Projects() {
             <button
               key={label}
               onClick={(e) => handleFilter(label, e.currentTarget)}
-              className={`relative z-10 text-xs px-4 py-2 rounded-full transition-colors cursor-none ${
-                active === label
-                  ? "text-foreground font-medium"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className={`relative z-10 text-xs px-4 py-2 rounded-full transition-colors cursor-none ${active === label
+                ? "text-foreground font-medium"
+                : "text-muted-foreground hover:text-foreground"
+                }`}
             >
               {label}
             </button>
