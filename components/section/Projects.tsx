@@ -17,6 +17,7 @@ const projects = [
     stack: ["Next.js", "Typescript", "Supabase", "Tailwind", "Nodejs"],
     category: "Next.js",
     href: "https://fitlog-tracker.vercel.app",
+    github: "https://github.com/chandev0908/Fitlog",
     image: "/projects/Fitlog-project.png",
   },
   {
@@ -26,6 +27,7 @@ const projects = [
     stack: ["Next.js", "JikanApi", "Zustand", "Tailwind"],
     category: "Next.js",
     href: "https://z-animedex-v2.vercel.app",
+    github: "https://github.com/chandev0908/Z-AnimedexV2",
     image: "/projects/Z-Animedex-project.png",
   },
   {
@@ -47,6 +49,17 @@ const projects = [
     href: "https://thedark-roast.myshopify.com",
     image: "/projects/Dark-roast-theme-project.png",
     password: "darkroast",
+  },
+  {
+    title: "Volt-Tech Theme",
+    description:
+      "Volt Theme is a custom Shopify theme built on Dawn 15.4.1, designed for an electronics/tech store (volt-techh.myshopify.com). It features a sharp, technical design system with a dark/light mode toggle, PHP (₱) currency, and a fully custom header with mega menu and predictive search. The theme is built with a mobile-first approach and is optimized for performance and accessibility. It includes custom sections and templates to provide a unique shopping experience for customers.",
+    stack: ["Shopify (Dawn 15.4.1 base theme)", "Liquid", "CSS", "Javascript", "Judge.me"],
+    category: "Shopify",
+    href: "https://volt-techh.myshopify.com",
+    image: "/projects/Volt-tech-theme-project.png",
+    github: "https://github.com/chandev0908/Volt-tech-Shopify-theme-",
+    password: "volt-tech",
   },
 ];
 
@@ -193,10 +206,11 @@ export default function Projects() {
             <button
               key={label}
               onClick={(e) => handleFilter(label, e.currentTarget)}
-              className={`relative z-10 text-xs px-4 py-2 rounded-full transition-colors cursor-none ${active === label
-                ? "text-foreground font-medium"
-                : "text-muted-foreground hover:text-foreground"
-                }`}
+              className={`relative z-10 text-xs px-4 py-2 rounded-full transition-colors cursor-none ${
+                active === label
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {label}
             </button>
@@ -206,11 +220,9 @@ export default function Projects() {
         {/* Projects grid */}
         <div ref={gridRef} className="grid sm:grid-cols-2 gap-px bg-border">
           {filtered.map((project) => (
-            <a
+            <div
               key={project.title}
-              href={project.href}
-              data-cursor="View ↗"
-              className="group bg-background p-8 flex flex-col gap-4 hover:bg-secondary transition-colors cursor-none"
+              className="group bg-background p-8 flex flex-col gap-4 hover:bg-secondary transition-colors"
             >
               {/* password badge — only shows if project has a password */}
               {project.password && (
@@ -231,15 +243,10 @@ export default function Projects() {
                   className="object-cover proj-thumb scale-110 group-hover:scale-100 transition-transform duration-500"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-foreground">
-                    {project.title}
-                  </p>
-                  <span className="text-muted-foreground text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
-                    ↗
-                  </span>
-                </div>
+              <div className="flex flex-col gap-2 flex-1">
+                <p className="text-sm font-medium text-foreground">
+                  {project.title}
+                </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
@@ -254,7 +261,29 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </a>
+              <div className="flex items-center gap-2 pt-2">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="Visit ↗"
+                  className="flex-1 text-center text-xs font-medium px-4 py-2 rounded-sm bg-foreground text-background hover:opacity-80 transition-opacity cursor-none"
+                >
+                  Visit Site ↗
+                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="Code ↗"
+                    className="flex-1 text-center text-xs font-medium px-4 py-2 rounded-sm border border-border text-foreground hover:bg-secondary transition-colors cursor-none"
+                  >
+                    View Code ↗
+                  </a>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>

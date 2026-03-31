@@ -12,6 +12,14 @@ const technical = [
   "WordPress", "Elementor", "Git", "Tailwind CSS", "Shopify",
 ]
 
+const aiTools = [
+  "Claude", "Gemini", "Google AI Studio", "Imagen", "Veo", "Google Flow",
+]
+
+const aiAutomation = [
+  "n8n",
+]
+
 const soft = [
   "Problem Solving", "Teamwork", "Communication",
   "Adaptability", "Time Management", "Critical Thinking",
@@ -20,6 +28,8 @@ const soft = [
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null)
   const techTagsRef = useRef<HTMLDivElement>(null)
+  const aiTagsRef = useRef<HTMLDivElement>(null)
+  const aiAutoTagsRef = useRef<HTMLDivElement>(null)
   const softTagsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,6 +63,42 @@ export default function Skills() {
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: techTagsRef.current,
+            start: "top 80%",
+          },
+        }
+      )
+
+      // stagger ai tags
+      gsap.fromTo(
+        aiTagsRef.current?.children ?? [],
+        { opacity: 0, scale: 0.7, y: 16 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.45,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: aiTagsRef.current,
+            start: "top 80%",
+          },
+        }
+      )
+
+      // stagger ai automation tags
+      gsap.fromTo(
+        aiAutoTagsRef.current?.children ?? [],
+        { opacity: 0, scale: 0.7, y: 16 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.45,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: aiAutoTagsRef.current,
             start: "top 80%",
           },
         }
@@ -97,7 +143,7 @@ export default function Skills() {
 
   return (
     <section ref={sectionRef} id="skills" className="border-b border-border">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4">
 
         <div className="px-8 py-16 md:border-r border-border">
           <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
@@ -110,6 +156,38 @@ export default function Skills() {
                 className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"
               >
                 {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="px-8 py-16 md:border-r border-border">
+          <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
+            AI Tools
+          </p>
+          <div ref={aiTagsRef} className="flex flex-wrap gap-2">
+            {aiTools.map((tool) => (
+              <span
+                key={tool}
+                className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="px-8 py-16 md:border-r border-border">
+          <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
+            AI Automation
+          </p>
+          <div ref={aiAutoTagsRef} className="flex flex-wrap gap-2">
+            {aiAutomation.map((tool) => (
+              <span
+                key={tool}
+                className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"
+              >
+                {tool}
               </span>
             ))}
           </div>
