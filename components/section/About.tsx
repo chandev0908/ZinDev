@@ -200,7 +200,7 @@ export default function About() {
                   PhilTech IT and Digital Solutions
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  June 2024 – July 2026
+                  June 2023 – July 2023
                 </p>
               </div>
             </div>
