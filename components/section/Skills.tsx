@@ -7,30 +7,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const technical = [
-  "HTML", "CSS", "JavaScript", "TypeScript", "React",
-  "Next.js", "Node.js", "Express", "Supabase", "Redux",
-  "WordPress", "Elementor", "Git", "Tailwind CSS", "Shopify",
+  "Shopify", "Liquid", "Online Store 2.0", "Sections", "Blocks",
+  "JSON Templates", "Metafields", "Shopify CLI", "HTML5", "CSS3",
+  "JavaScript", "TypeScript", "ReactJS", "Next.js", "Tailwind CSS",
+  "Sass", "WordPress", "WooCommerce", "PHP", "Elementor",
 ]
 
-const aiTools = [
-  "Claude", "Gemini", "Google AI Studio", "Imagen", "Veo", "Google Flow",
+const ecommerceTools = [
+  "Matrixify", "SparkLayer", "Advanced Shipping Rules", "Candyrack",
+  "Pumper", "Klaviyo", "Judge.me", "Google Analytics 4",
+  "Google Tag Manager", "Core Web Vitals", "PageSpeed Optimization",
 ]
 
-const aiAutomation = [
-  "n8n",
+const automation = [
+  "n8n", "Shopify Flow", "Webhooks", "Google Sheets Integration",
+  "Slack Integration", "Pre-order tagging", "Catalog cleanup",
 ]
 
-const soft = [
-  "Problem Solving", "Teamwork", "Communication",
-  "Adaptability", "Time Management", "Critical Thinking",
+const workflow = [
+  "Git", "GitHub", "Figma-to-Shopify", "Claude AI", "Codex",
+  "CRO", "B2B wholesale operations", "OpenCart-to-Shopify migrations",
 ]
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null)
   const techTagsRef = useRef<HTMLDivElement>(null)
-  const aiTagsRef = useRef<HTMLDivElement>(null)
-  const aiAutoTagsRef = useRef<HTMLDivElement>(null)
-  const softTagsRef = useRef<HTMLDivElement>(null)
+  const ecommerceTagsRef = useRef<HTMLDivElement>(null)
+  const automationTagsRef = useRef<HTMLDivElement>(null)
+  const workflowTagsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -68,9 +72,8 @@ export default function Skills() {
         }
       )
 
-      // stagger ai tags
       gsap.fromTo(
-        aiTagsRef.current?.children ?? [],
+        ecommerceTagsRef.current?.children ?? [],
         { opacity: 0, scale: 0.7, y: 16 },
         {
           opacity: 1,
@@ -80,15 +83,14 @@ export default function Skills() {
           stagger: 0.05,
           ease: "back.out(1.7)",
           scrollTrigger: {
-            trigger: aiTagsRef.current,
+            trigger: ecommerceTagsRef.current,
             start: "top 80%",
           },
         }
       )
 
-      // stagger ai automation tags
       gsap.fromTo(
-        aiAutoTagsRef.current?.children ?? [],
+        automationTagsRef.current?.children ?? [],
         { opacity: 0, scale: 0.7, y: 16 },
         {
           opacity: 1,
@@ -98,15 +100,14 @@ export default function Skills() {
           stagger: 0.05,
           ease: "back.out(1.7)",
           scrollTrigger: {
-            trigger: aiAutoTagsRef.current,
+            trigger: automationTagsRef.current,
             start: "top 80%",
           },
         }
       )
 
-      // stagger soft tags
       gsap.fromTo(
-        softTagsRef.current?.children ?? [],
+        workflowTagsRef.current?.children ?? [],
         { opacity: 0, scale: 0.7, y: 16 },
         {
           opacity: 1,
@@ -116,7 +117,7 @@ export default function Skills() {
           stagger: 0.07,
           ease: "back.out(1.7)",
           scrollTrigger: {
-            trigger: softTagsRef.current,
+            trigger: workflowTagsRef.current,
             start: "top 80%",
           },
         }
@@ -147,7 +148,7 @@ export default function Skills() {
 
         <div className="px-8 py-16 md:border-r border-border">
           <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
-            Technical skills
+            Shopify & front-end
           </p>
           <div ref={techTagsRef} className="flex flex-wrap gap-2">
             {technical.map((skill) => (
@@ -163,10 +164,10 @@ export default function Skills() {
 
         <div className="px-8 py-16 md:border-r border-border">
           <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
-            AI Tools
+            Ecommerce tools
           </p>
-          <div ref={aiTagsRef} className="flex flex-wrap gap-2">
-            {aiTools.map((tool) => (
+          <div ref={ecommerceTagsRef} className="flex flex-wrap gap-2">
+            {ecommerceTools.map((tool) => (
               <span
                 key={tool}
                 className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"
@@ -179,10 +180,10 @@ export default function Skills() {
 
         <div className="px-8 py-16 md:border-r border-border">
           <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
-            AI Automation
+            Automation
           </p>
-          <div ref={aiAutoTagsRef} className="flex flex-wrap gap-2">
-            {aiAutomation.map((tool) => (
+          <div ref={automationTagsRef} className="flex flex-wrap gap-2">
+            {automation.map((tool) => (
               <span
                 key={tool}
                 className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"
@@ -195,10 +196,10 @@ export default function Skills() {
 
         <div className="px-8 py-16">
           <p className="skills-label text-lg uppercase tracking-widest text-muted-foreground mb-8 opacity-0">
-            Soft skills
+            Workflow
           </p>
-          <div ref={softTagsRef} className="flex flex-wrap gap-2">
-            {soft.map((skill) => (
+          <div ref={workflowTagsRef} className="flex flex-wrap gap-2">
+            {workflow.map((skill) => (
               <span
                 key={skill}
                 className="text-xs px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors cursor-default opacity-0"

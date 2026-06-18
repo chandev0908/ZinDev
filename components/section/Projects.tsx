@@ -1,40 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { title } from "process";
-import { CopyIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "FitLog",
+    title: "Volt-Tech Theme",
     description:
-      "A full-stack fitness tracking app to log workouts, track PRs, upload progress photos, and document your fitness journey.",
-    stack: ["Next.js", "Typescript", "Supabase", "Tailwind", "Nodejs"],
-    category: "Next.js",
-    href: "https://fitlog-tracker.vercel.app",
-    github: "https://github.com/chandev0908/Fitlog",
-    image: "/projects/Fitlog-project.png",
-  },
-  {
-    title: "Z-Animedex 2.0",
-    description:
-      "An improved version of my old Z-Animedex app with a better UI",
-    stack: ["Next.js", "JikanApi", "Zustand", "Tailwind"],
-    category: "Next.js",
-    href: "https://z-animedex-v2.vercel.app",
-    github: "https://github.com/chandev0908/Z-AnimedexV2",
-    image: "/projects/Z-Animedex-project.png",
+      "A Dawn-based electronics Shopify theme with a custom mega menu, predictive search, product comparison, wishlist, dark mode toggle, and custom Liquid sections.",
+    stack: ["Shopify", "Dawn", "Liquid", "JavaScript", "Judge.me"],
+    category: "Shopify",
+    href: "https://volt-techh.myshopify.com",
+    image: "/projects/Volt-tech-theme-project.png",
+    github: "https://github.com/chandev0908/Volt-tech-Shopify-theme-",
+    password: "volt-tech",
   },
   {
     title: "Chanfinds Theme",
     description:
-      "A shopify custom theme I made to showcase my shopify skills. It features a clean, modern design with smooth animations and a custom cursor.",
-    stack: ["Shopify", "Liquid", "CSS", "Javascript"],
+      "A custom fashion and lifestyle Shopify theme with AJAX cart behavior, custom animations, mobile-first layouts, and a lean zero-jQuery frontend.",
+    stack: ["Shopify", "Liquid", "CSS", "JavaScript", "AJAX cart"],
     category: "Shopify",
     href: "https://chanfinds-2.myshopify.com",
     image: "/projects/Shopify-chanfinds-project.png",
@@ -43,23 +32,32 @@ const projects = [
   {
     title: "The Dark Roast Theme",
     description:
-      "A premium, dark-mode Shopify storefront engineered from the ground up to deliver a seamless, high-end e-commerce experience. Built exclusively with Liquid and Vanilla JavaScript, it features a fully AJAX-driven cart architecture, intelligent debouncing, and dynamically rendered UI states without relying on heavy external dependencies like jQuery.",
-    stack: ["Shopify", "Liquid", "CSS", "Javascript", "AJAX", "jQuery"],
+      "A custom coffee brand storefront with a moody aesthetic, AJAX cart interactions, debounced search, dynamic UI states, and a focused Liquid codebase.",
+    stack: ["Shopify", "Liquid", "CSS", "JavaScript", "AJAX"],
     category: "Shopify",
     href: "https://thedark-roast.myshopify.com",
     image: "/projects/Dark-roast-theme-project.png",
     password: "darkroast",
   },
   {
-    title: "Volt-Tech Theme",
+    title: "FitLog",
     description:
-      "Volt Theme is a custom Shopify theme built on Dawn 15.4.1, designed for an electronics/tech store (volt-techh.myshopify.com). It features a sharp, technical design system with a dark/light mode toggle, PHP (₱) currency, and a fully custom header with mega menu and predictive search. The theme is built with a mobile-first approach and is optimized for performance and accessibility. It includes custom sections and templates to provide a unique shopping experience for customers.",
-    stack: ["Shopify (Dawn 15.4.1 base theme)", "Liquid", "CSS", "Javascript", "Judge.me"],
-    category: "Shopify",
-    href: "https://volt-techh.myshopify.com",
-    image: "/projects/Volt-tech-theme-project.png",
-    github: "https://github.com/chandev0908/Volt-tech-Shopify-theme-",
-    password: "volt-tech",
+      "A full-stack fitness tracking app to log workouts, track PRs, upload progress photos, and document a fitness journey.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Node.js"],
+    category: "Next.js",
+    href: "https://fitlog-tracker.vercel.app",
+    github: "https://github.com/chandev0908/Fitlog",
+    image: "/projects/Fitlog-project.png",
+  },
+  {
+    title: "Z-Animedex 2.0",
+    description:
+      "An improved anime information app built with a cleaner interface and faster Next.js implementation.",
+    stack: ["Next.js", "Jikan API", "Zustand", "Tailwind"],
+    category: "Next.js",
+    href: "https://z-animedex-v2.vercel.app",
+    github: "https://github.com/chandev0908/Z-AnimedexV2",
+    image: "/projects/Z-Animedex-project.png",
   },
 ];
 
@@ -71,7 +69,6 @@ export default function Projects() {
   const filterBarRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState("All");
 
-  // derive filters dynamically — only show categories that exist in projects
   const filters = useMemo(() => {
     const categories = Array.from(new Set(projects.map((p) => p.category)));
     return ["All", ...categories];
@@ -112,7 +109,6 @@ export default function Projects() {
     });
   }
 
-  // animate cards in after filter changes
   useEffect(() => {
     const cards = gridRef.current?.children;
     if (!cards) return;
@@ -130,7 +126,6 @@ export default function Projects() {
     );
   }, [active]);
 
-  // set initial indicator on mount
   useEffect(() => {
     const bar = filterBarRef.current;
     const indicator = indicatorRef.current;
@@ -145,7 +140,6 @@ export default function Projects() {
     });
   }, []);
 
-  // scroll reveal
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -192,7 +186,6 @@ export default function Projects() {
           Projects
         </p>
 
-        {/* Filter bar — only renders categories with actual projects */}
         <div
           ref={filterBarRef}
           className="relative flex items-center gap-1 mb-10 opacity-0 flex-wrap"
@@ -217,14 +210,12 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Projects grid */}
         <div ref={gridRef} className="grid sm:grid-cols-2 gap-px bg-border">
           {filtered.map((project) => (
             <div
               key={project.title}
               className="group bg-background p-8 flex flex-col gap-4 hover:bg-secondary transition-colors"
             >
-              {/* password badge — only shows if project has a password */}
               {project.password && (
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -266,20 +257,20 @@ export default function Projects() {
                   href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cursor="Visit ↗"
+                  data-cursor="Visit"
                   className="flex-1 text-center text-xs font-medium px-4 py-2 rounded-sm bg-foreground text-background hover:opacity-80 transition-opacity cursor-none"
                 >
-                  Visit Site ↗
+                  Visit Site
                 </a>
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-cursor="Code ↗"
+                    data-cursor="Code"
                     className="flex-1 text-center text-xs font-medium px-4 py-2 rounded-sm border border-border text-foreground hover:bg-secondary transition-colors cursor-none"
                   >
-                    View Code ↗
+                    View Code
                   </a>
                 )}
               </div>

@@ -6,8 +6,9 @@ import ThemeTransition from "@/components/ui/ThemeTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Chandev — Christian Dalagan",
-  description: "Full-stack web developer. Building modern web experiences.",
+  title: "Chandev | Christian Dalagan",
+  description:
+    "Shopify Developer and Store Manager building custom themes, faster storefronts, B2B workflows, and ecommerce automations.",
 };
 
 export default function RootLayout({

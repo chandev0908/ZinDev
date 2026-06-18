@@ -24,12 +24,12 @@ export default function SmoothScroll() {
 
     gsap.ticker.lagSmoothing(0)
 
-    // expose lenis globally so scrollToSection can use it
-    ;(window as any).__lenis = lenis
+    // Expose Lenis globally so section navigation can use the same scroll controller.
+    window.__lenis = lenis
 
     return () => {
       lenis.destroy()
-      delete (window as any).__lenis
+      delete window.__lenis
     }
   }, [])
 

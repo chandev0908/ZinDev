@@ -3,19 +3,13 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Kaushan_Script } from "next/font/google"
 import { ModeToggle } from "@/components/ui/ModeToggle"
 import { Mouse } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const kaushan = Kaushan_Script({
-  weight: "400",
-  subsets: ["latin"],
-})
-
 function scrollToSection(id: string) {
-  const lenis = (window as any).__lenis
+  const lenis = window.__lenis
   const el = document.getElementById(id)
   if (!el) return
   if (lenis) {
@@ -28,7 +22,7 @@ function scrollToSection(id: string) {
 const navLinks = [
   { label: "About me", href: "about" },
   { label: "Projects", href: "projects" },
-  { label: "Experience", href: "about" },
+  { label: "Experience", href: "experience" },
   { label: "Skills", href: "skills" },
   { label: "Contact", href: "contact" },
 ]
@@ -168,13 +162,13 @@ export default function Hero() {
         ref={eyebrowRef}
         className="text-sm uppercase tracking-widest text-muted-foreground mb-6 opacity-0"
       >
-        Christian Dalagan
+        Shopify Developer & Store Manager
       </p>
 
       {/* Name — extra vertical padding so descenders aren't clipped */}
       <h1
         ref={nameRef}
-        className={`${kaushan.className} text-7xl md:text-[10rem] lg:text-[12rem] text-foreground leading-none mb-4`}
+        className="font-kaushan text-7xl md:text-[10rem] lg:text-[12rem] text-foreground leading-none mb-4"
         style={{ paddingBottom: "0.1em", paddingTop: "0.05em" }}
       >
         Chandev
@@ -185,7 +179,7 @@ export default function Hero() {
         ref={taglineRef}
         className="text-base md:text-lg text-muted-foreground mb-12"
       >
-        Developer who cares about the details.
+        I build Shopify themes, fix store operations, and turn messy ecommerce workflows into cleaner systems.
       </p>
 
       {/* Nav pills */}

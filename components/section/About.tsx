@@ -28,6 +28,7 @@ export default function About() {
   const rightRef = useRef<HTMLDivElement>(null)
   const exp1Ref = useRef<HTMLDivElement>(null)
   const exp2Ref = useRef<HTMLDivElement>(null)
+  const exp3Ref = useRef<HTMLDivElement>(null)
   const resumeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -99,7 +100,7 @@ export default function About() {
         )
       }
 
-      ;[exp1Ref, exp2Ref].forEach((ref, i) => {
+      ;[exp1Ref, exp2Ref, exp3Ref].forEach((ref, i) => {
         gsap.fromTo(
           ref.current,
           { opacity: 0, x: 40 },
@@ -141,11 +142,12 @@ export default function About() {
               About me
             </p>
             <p className="about-body text-sm text-muted-foreground leading-relaxed">
-              I&apos;m Christian Dalagan, a self-driven web developer who started
-              out building WordPress sites and has since leveled up into
-              full-stack development. These days I spend my time crafting web
-              apps with Next.js, Node.js, Supabase, and Express — writing clean
-              code and sweating the details that most people don&apos;t notice.
+              I&apos;m Christian Dalagan, a Shopify Developer and Store Manager with
+              3 years of hands-on experience building custom themes, improving
+              store performance, and managing real ecommerce operations. I work
+              across Liquid, Online Store 2.0, metafields, Shopify Flow,
+              analytics, B2B wholesale, app integrations, WordPress, and
+              migration work.
             </p>
           </div>
 
@@ -158,21 +160,21 @@ export default function About() {
               data-cursor="View ↗"
               className="text-xs px-5 py-2.5 rounded-full border border-border text-foreground font-medium hover:bg-secondary transition-colors cursor-none"
             >
-              View resume
+              View CV
             </a>
             <a
               href="/Christian-Dalagan-Resume.pdf"
-              download="Christian_Dalagan_Resume.pdf"
+              download="Christian_Dalagan_CV.pdf"
               data-cursor="Download ↓"
               className="text-xs px-5 py-2.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors cursor-none"
             >
-              Download resume
+              Download CV
             </a>
           </div>
         </div>
 
         {/* Experience */}
-        <div ref={rightRef} className="px-8 py-16">
+        <div ref={rightRef} id="experience" className="px-8 py-16">
           <p className="section-label text-lg font-bold uppercase tracking-widest mb-8 opacity-0">
             Experience
           </p>
@@ -181,11 +183,13 @@ export default function About() {
               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
               <div>
                 <p className="text-sm font-medium text-foreground mb-0.5">
-                  Web Developer
+                  Shopify Developer & Store Manager
                 </p>
-                <p className="text-xs text-muted-foreground mb-0.5">Freelance</p>
+                <p className="text-xs text-muted-foreground mb-0.5">
+                  German B2C/B2B Ecommerce Brand
+                </p>
                 <p className="text-xs text-muted-foreground">
-                  June 2024 – July 2025
+                  Jan 2025 - Present
                 </p>
               </div>
             </div>
@@ -194,13 +198,28 @@ export default function About() {
               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
               <div>
                 <p className="text-sm font-medium text-foreground mb-0.5">
-                  Intern Web Developer
+                  Freelance Web Developer
                 </p>
                 <p className="text-xs text-muted-foreground mb-0.5">
-                  PhilTech IT and Digital Solutions
+                  Shopify & WordPress
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  June 2023 – July 2023
+                  Jul 2023 - Sep 2025
+                </p>
+              </div>
+            </div>
+
+            <div ref={exp3Ref} className="flex gap-4 opacity-0">
+              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
+              <div>
+                <p className="text-sm font-medium text-foreground mb-0.5">
+                  Intern / Front-End Developer
+                </p>
+                <p className="text-xs text-muted-foreground mb-0.5">
+                  iPhiTech IT and Digital Solutions
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Jun 2023 - Aug 2023
                 </p>
               </div>
             </div>

@@ -27,7 +27,7 @@ export default function Contact() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const { name, email, subject, message } = form
-    window.location.href = `mailto:christiandalagan@gmail.com?subject=${encodeURIComponent(subject || "Portfolio inquiry")}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`
+    window.location.href = `mailto:chandev0908@gmail.com?subject=${encodeURIComponent(subject || "Portfolio inquiry")}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`
   }
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function Contact() {
             Let&apos;s work together.
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-10">
-            Open to freelance projects, collaborations, or just a good conversation about web development.
+            Open to Shopify theme development, store fixes, migrations, automation, WordPress work, and ecommerce cleanup projects.
           </p>
 
           <div ref={socialsRef} className="flex flex-col gap-3">

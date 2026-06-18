@@ -1,24 +1,18 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Kaushan_Script } from "next/font/google"
 import { ModeToggle } from "@/components/ui/ModeToggle"
-
-const kaushan = Kaushan_Script({
-  weight: "400",
-  subsets: ["latin"],
-})
 
 const navLinks = [
   { label: "About", href: "about" },
   { label: "Projects", href: "projects" },
-  { label: "Experience", href: "about" },
+  { label: "Experience", href: "experience" },
   { label: "Skills", href: "skills" },
   { label: "Contact", href: "contact" },
 ]
 
 function scrollToSection(id: string) {
-  const lenis = (window as any).__lenis
+  const lenis = window.__lenis
   const el = document.getElementById(id)
   if (!el) return
   if (lenis) {
@@ -36,16 +30,14 @@ export default function Navbar() {
     const handleScroll = () => {
       const hero = document.getElementById("hero")
       if (!hero) return
-      setVisible(hero.getBoundingClientRect().bottom <= 0)
+      const nextVisible = hero.getBoundingClientRect().bottom <= 0
+      setVisible(nextVisible)
+      if (!nextVisible) setIsOpen(false)
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  useEffect(() => {
-    if (!visible) setIsOpen(false)
-  }, [visible])
 
   return (
     <header
@@ -60,7 +52,7 @@ export default function Navbar() {
         {/* Brand */}
         <button
           onClick={() => scrollToSection("hero")}
-          className={`${kaushan.className} text-xl text-foreground bg-transparent border-none cursor-none p-0`}
+          className="font-kaushan text-xl text-foreground bg-transparent border-none cursor-none p-0"
         >
           Chandev
         </button>
@@ -83,12 +75,12 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Resume button — desktop only */}
           <a
-            href="/resume.pdf"
-            download="Christian_Dalagan_Resume.pdf"
+            href="/Christian-Dalagan-Resume.pdf"
+            download="Christian_Dalagan_CV.pdf"
             data-cursor="Download ↓"
             className="hidden md:inline-flex text-xs px-4 py-2 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors cursor-none"
           >
-            View CV/Resume
+            View CV
           </a>
 
           <ModeToggle />
@@ -122,12 +114,12 @@ export default function Navbar() {
           {/* Resume in mobile menu */}
           <li>
             <a
-              href="/resume.pdf"
-              download="Christian_Dalagan_Resume.pdf"
+              href="/Christian-Dalagan-Resume.pdf"
+              download="Christian_Dalagan_CV.pdf"
               onClick={() => setIsOpen(false)}
               className="block px-8 py-4 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors border-b border-border"
             >
-              View CV/Resume ↓
+              View CV
             </a>
           </li>
         </ul>

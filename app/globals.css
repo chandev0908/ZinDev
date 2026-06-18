@@ -47,7 +47,9 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
+
 :root {
+  --font-kaushan: "Brush Script MT", "Segoe Script", cursive;
   --background: oklch(0.98 0.003 75);
   --foreground: oklch(0.12 0.003 75);
   --card: oklch(0.965 0.004 75);
@@ -67,7 +69,6 @@
   --input: oklch(0.89 0.006 75);
   --ring: oklch(0.65 0.005 75);
   --radius: 0.5rem;
-  /* keep your chart + sidebar vars unchanged */
 }
 
 .dark {
@@ -89,16 +90,18 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.42 0.004 75);
-  /* keep your chart + sidebar vars unchanged */
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    overflow-wrap: anywhere;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
